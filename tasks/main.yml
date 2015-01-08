@@ -16,4 +16,4 @@
   when: setup_swapfile.changed
 
 - name: Add swapfile to fstab
-  lineinfile: dest=/etc/fstab line="{{ swapfile_path }}   none   swap   sw   0   0" state=present
+  mount: src={{ swapfile_path }} name=none fstype=swap opts=sw dump=0 passno=0 state=present
